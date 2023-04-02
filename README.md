@@ -68,8 +68,9 @@ $ npm run migration:run
 $ npm run migration:revert
 
 # nestjs9-typeorm-example-migrations
-## Posibles cambios
 ```
+## Posibles cambios
+
 $ car.service.ts
 ```
  async createCar(createCarDto: CreateCarDto): Promise<Car> {
