@@ -68,3 +68,37 @@ $ npm run migration:run
 $ npm run migration:revert
 
 # nestjs9-typeorm-example-migrations
+## Posibles cambios
+$ car.service.ts
+```
+ async createCar(createCarDto: CreateCarDto): Promise<Car> {
+    const car = this.carRepository.create(createCarDto);
+    return this.carRepository.save(car);
+  }
+
+```
+  --------------------------------------------
+  ```
+  $ create-car.dto.ts
+  
+ import { IsString, IsNotEmpty, IsNumber } from 'class-validator'
+import { Person } from 'src/person/entity/person.entity'
+export class CreateCarDto {
+    @IsNotEmpty()
+    @IsString()
+    model: string
+
+    @IsNotEmpty()
+    @IsString()
+    make: string
+
+    @IsNotEmpty()
+    @IsString()
+    color: string
+
+    @IsNotEmpty()
+    @IsNumber()
+    personId: Person
+}
+
+  ```
